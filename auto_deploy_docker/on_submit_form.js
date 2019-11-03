@@ -1,6 +1,6 @@
 (() => {
     let submit_button = null;
-    let count = 0;
+
     document.addEventListener("DOMContentLoaded", () => {
 
         // document.getElementById("port").value = "hello, js";
@@ -15,12 +15,27 @@
                submit_button.addEventListener("click", () => {
 
                 const fields = ['host', 'port', 'username', 'password'];
-                let server = {};
+                let server_info = {};
                 for(let field in fields) {
                     console.log(field);
-                    server[field] = document.getElementById(field).value;
+                    server_info[field] = document.getElementById(field).value;
                 }
-               console.log(server);
+
+                // the web socket
+                const socket = new WebSocket("wss://deploy.blogdiy.net:6789")
+
+                // Connection Opened
+                socket.addEventListener('open', (event) => {
+                    msg = {msg: 'hello, websocket'};
+                    socket.send(JSON.stringify(msg))});
+
+                // Listen for messages
+                socket.addEventListener('message', (event) => {
+                    console.log('Message from server ', event.data);
+                });
+
+                socket.send(JSON.stringfy(server_info));
+                console.log(server_info);
 
             })
             }

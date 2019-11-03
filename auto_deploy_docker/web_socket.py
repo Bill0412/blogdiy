@@ -4,6 +4,7 @@ import logging
 import websockets
 import ssl
 import pathlib
+import sys
 
 logging.basicConfig()
 
@@ -25,7 +26,9 @@ async def deploy_service(websocket, path):
         # await websocket.send()
         async for message in websocket:
             data = json.loads(message)
-            print(data)
+            await print('message: ', message)
+            await print('data: ', data)
+            await sys.stdout.flush()
             await websocket.send('data received')
 
     finally:

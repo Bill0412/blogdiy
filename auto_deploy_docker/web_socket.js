@@ -2,7 +2,7 @@
 // 1. https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
 
 // Create WebSocket connection.
-const socket = new WebSocket("wss://45.146.122.60:6789", )
+const socket = new WebSocket("wss://deploy.blogdiy.net:6789")
 
 // Connection Opened
 socket.addEventListener('open', (event) => {
