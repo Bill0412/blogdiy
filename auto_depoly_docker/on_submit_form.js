@@ -8,7 +8,7 @@
         // if there is a server info upload form
         if(form) {
             submit_button = form.querySelector(".contact-submit > .pushbutton-wide");
-            console.log(form);
+            // console.log(form);
             console.log(submit_button);
 
             if(submit_button) {
