@@ -26,9 +26,9 @@ async def deploy_service(websocket, path):
         # await websocket.send()
         async for message in websocket:
             data = json.loads(message)
-            await print('message: ', message)
-            await print('data: ', data)
-            await sys.stdout.flush()
+            print('message: ', message)
+            print('data: ', data)
+            sys.stdout.flush()
             await websocket.send('data received')
 
     finally:
