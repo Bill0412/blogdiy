@@ -22,12 +22,12 @@
     $("#contact-form-25").submit((event) => {
 
 
-        socket.send({
+        socket.send(JSON.stringify({
             host: $("#host").val(),
             port: $("#port").val(),
             username: $("#username").val(),
             password: $("#password").val()
-        });
+        }));
     });
 
 })();
