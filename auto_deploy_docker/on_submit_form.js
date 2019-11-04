@@ -21,13 +21,20 @@
 
     $("#contact-form-25").submit((event) => {
 
-
-        socket.send(JSON.stringify({
-            host: $("#host").val(),
-            port: $("#port").val(),
-            username: $("#username").val(),
-            password: $("#password").val()
-        }));
+        let deploy_info = {
+            blog_diy: {
+                deploy: {
+                    server_name: 'wordpress',
+                    server_info: {
+                        host: $("#host").val(),
+                        port: $("#port").val(),
+                        username: $("#username").val(),
+                        password: $("#password").val()
+                    }
+                }
+            }
+        };
+        socket.send(JSON.stringify(deploy_info));
     });
 
 })();
