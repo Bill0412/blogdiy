@@ -8,8 +8,11 @@ Following is a transferred JSON Data Sample Between <https://blogdiy.net> and <w
 {
     "blog_diy": {
         "deploy": {
-            "service_name": "wordpress",
-            "server_info": {
+            "service": {
+                "name": "wordpress",
+                "port": 80
+            },
+            "target": {
                 "host": "xxx.xxx.xxx.xxx",
                 "port": "port",
                 "username": "dummy",
@@ -27,6 +30,8 @@ Following is a transferred JSON Data Sample Between <https://blogdiy.net> and <w
 ```bash
 $ apt-get install pip3
 $ pip3 install websockets
+$ pip3 install paramiko
+
 ```
 
 #### Get WSS Certificate
@@ -37,7 +42,7 @@ In case the port is occupied,
 ```bash
 $ lsof -wni tcp:6789 
 # a pid should be shown for the thread running on that port
-$ kill pid
+$ kill -9 pid
 ```
 
 #### Deployment

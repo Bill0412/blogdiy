@@ -20,21 +20,27 @@
 
 
     $("#contact-form-25").submit((event) => {
-
         let deploy_info = {
             blog_diy: {
                 deploy: {
-                    server_name: 'wordpress',
-                    server_info: {
+                    service: {
+                        name: 'wordpress',
+                            // default port: 80
+                        port: $("#listen_port").val().length ? parseInt($("#listen_port").val()) : 80
+                    },
+                    target: {
                         host: $("#host").val(),
-                        port: $("#port").val(),
-                        username: $("#username").val(),
+                        port: $("#port").val().length ? parseInt($("#port").val()) : 22,  // default port: 22
+                        username: $("#username").val().length ? $("#username").val() : 'root',
                         password: $("#password").val()
                     }
                 }
             }
         };
         socket.send(JSON.stringify(deploy_info));
+
+        link = deploy_info.blog_diy.deploy.target.host + ':' + deploy_info.blog_diy.deploy.service.port;
+        $("#contact-form-25").replaceWith(`<h4>如果您提供的服务器信息是正确的，您的WordPress网站能在10分钟内在自动完成部署。稍后您可以通过<a href="http://${link}/" target="_blank">http://${link}/</a>来配置您的网站。</h4>`);
     });
 
 })();
