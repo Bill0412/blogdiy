@@ -6,6 +6,8 @@ import ssl
 import pathlib
 import sys
 
+import ssh_login
+
 logging.basicConfig()
 
 USERS = set()
@@ -31,6 +33,11 @@ async def deploy_service(websocket, path):
             sys.stdout.flush()
             await websocket.send('data received')
 
+            if 'blog_diy' in data:  # deploy info
+                service = data['blog_diy']['deploy']['service']
+                target = data['blog_diy']['deploy']['target']
+                ssh_login.deploy_to(target['host'], int(target['port']),
+                                    target['username'], target['password'], service['port'])
     finally:
         await unregister(websocket)
 
