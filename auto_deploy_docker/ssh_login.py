@@ -11,6 +11,7 @@ def execute_command(client, command):
 def deploy_to(host, port, username, password):
     client = paramiko.SSHClient()
     client.load_system_host_keys()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(host, port=port, username=username, password=password)
 
     execute_command(client, "apt install docker.io")
@@ -23,5 +24,5 @@ def deploy_to(host, port, username, password):
 host = '108.61.207.105'
 port = 22
 username = 'root'
-password = '7z#JW!Cj9=Hps5[$'
+password = '4%MqP7-,rQ{F4m$b'
 deploy_to(host, port, username, password)
