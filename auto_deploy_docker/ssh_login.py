@@ -1,6 +1,4 @@
 import paramiko
-import asyncio
-
 
 def execute_command(client, command):
     stdin, stdout, stderr = client.exec_command(command)
@@ -12,17 +10,17 @@ def deploy_to(host, port, username, password):
     client = paramiko.SSHClient()
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(host, port=port, username=username, password=password)
+    client.connect(host, port=port, username=username, password=password, timeout=600)
 
-    execute_command(client, "apt install docker.io")
-    execute_command(client, "docker pull wordpress")
-    execute_command(client, "docker run --name wp0 -p 80:80 -d wordpress")
+    execute_command(client, "wget https://raw.githubusercontent.com/Bill0412/blogdiy/master/auto_deploy_docker/deploy_wordpress.sh")
+    execute_command(client, "echo '\n' | nohup bash deploy_wordpress.sh &")
 
     client.close()
 
 
-host = '108.61.207.105'
-port = 22
-username = 'root'
-password = '4%MqP7-,rQ{F4m$b'
-deploy_to(host, port, username, password)
+if __name__ == '__main__':
+    host = '91.90.195.216'
+    port = 3333
+    username = 'root'
+    password = 'f7bgsBE2'
+    deploy_to(host, port, username, password)
