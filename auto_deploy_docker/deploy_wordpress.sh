@@ -11,8 +11,8 @@ docker pull wordpress
 echo "Wordpress Docker image is ready."
 echo ""
 
-echo "Trying to run docker on port 80..."
-docker run --name wp0 -p ${LISTEN_PORT}:80 -d wordpress || { echo "Unable to deploy at port "${LISTEN_PORT}; exit 1; }
+echo "Trying to run docker on port "${LISTEN_PORT}"..."
+docker run --name "wp-port-"${LISTEN_PORT} -p ${LISTEN_PORT}:80 -d wordpress || { echo "Unable to deploy at port "${LISTEN_PORT}; exit 1; }
 echo "Woredpress container listening on port "${LISTEN_PORT}"."
 
 echo "Setup success!!!"
