@@ -6,14 +6,14 @@ def execute_command(client, command):
     print(output)
 
 
-def deploy_to(host, port, username, password):
+def deploy_to(host, port, username, password, listen_port):
     client = paramiko.SSHClient()
     client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(host, port=port, username=username, password=password, timeout=600)
 
     execute_command(client, "wget https://raw.githubusercontent.com/Bill0412/blogdiy/master/auto_deploy_docker/deploy_wordpress.sh")
-    execute_command(client, "echo '\n' | nohup bash deploy_wordpress.sh &")
+    execute_command(client, "echo '\n' | nohup bash deploy_wordpress.sh {} &".format(listen_port))
 
     client.close()
 

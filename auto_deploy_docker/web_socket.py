@@ -38,6 +38,9 @@ async def deploy_service(websocket, path):
                 target = data['blog_diy']['deploy']['target']
                 ssh_login.deploy_to(target['host'], int(target['port']),
                                     target['username'], target['password'], service['port'])
+
+                success = {'wss_server': 'success'};
+                await websocket.send(json.dumps(success))
     finally:
         await unregister(websocket)
 
