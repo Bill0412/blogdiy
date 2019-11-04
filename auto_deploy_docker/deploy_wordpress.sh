@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
-apt install docker.io && echo "Docker is installed"
+echo "Installing docker..."
+echo 'y\n' | apt install docker.io
+echo "Docker is installed."
 echo ""
 
-docker pull wordpress && echo "wordpress image is ready"
+echo "Downloading Wordpress Docker image..."
+docker pull wordpress
+echo "Wordpress Docker image is ready."
 echo ""
 
-docker run --name wp0 80:80 -d wordpress || { echo "Unable to deploy at port 80"; exit 1; }
+echo "Trying to run docker on port 80..."
+docker run --name wp0 -p 80:80 -d wordpress || { echo "Unable to deploy at port 80"; exit 1; }
+echo "Woredpress container listening on port 80."
 
-echo "Docker running on port 80"
+echo "Setup success!!!"
