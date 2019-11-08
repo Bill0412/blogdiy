@@ -8,4 +8,5 @@ sysctl -p
 apt-get update
 apt install curl
 
-echo 'y\n' | bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)"
+curl -sS https://get.docker.com/ | sh
+bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)"
