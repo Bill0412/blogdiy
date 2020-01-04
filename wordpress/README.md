@@ -1,0 +1,1 @@
+This is the wordpress docker with mysql composer.
