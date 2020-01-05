@@ -1,6 +1,11 @@
 # Comments
 On most of the Linux distributions, this deploy instruction will work.
 
+## Wordpress Panel
+The functionalities are integrated to the WordPress stie <https://sitediy.fenghe.us/>, with the following plugins.
+- Jetpack
+- Insert Headers and Footers
+
 ## Communication API
 ### JSON Deploy Info Format
 Following is a transferred JSON Data Sample Between <https://blogdiy.net> and <wss://deploy.blogdiy.net>> using WebSocket.
