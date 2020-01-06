@@ -49,6 +49,7 @@ ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 localhost_pem = pathlib.Path(__file__).with_name("localhost.pem")
 ssl_context.load_cert_chain(localhost_pem)
 
-start_server = websockets.serve(deploy_service, 'deploy.blogdiy.net', 6789, ssl=ssl_context)
+start_server = websockets.serve(deploy_service, 'deploy.sitediy.fenghe.us', 6789, ssl=ssl_context)
+# start_server = websockets.serve(deploy_service, '0.0.0.0', 6789)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()

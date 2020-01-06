@@ -55,11 +55,11 @@ $ kill -9 pid
 $ nohup python3 web_socket.py &
 ```
 
-### web_socket.js
+### on_submit_form.js
 This should be inserted at the footers by using the WordPress plugin Insert Headers and Footers.
 ```html
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
-<!-- web_socket.js should be inside here. -->
+<!-- on_submit_form.js should be inside here. (After removing IIFE notation) -->
 </script>
 ```
