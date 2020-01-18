@@ -13,6 +13,7 @@ echo ""
 
 echo "Trying to run docker on port 80..."
 # docker run --name "wp-port-"${LISTEN_PORT} -p ${LISTEN_PORT}:80 -d wordpress || { echo "Unable to deploy at port "${LISTEN_PORT}; exit 1; }
+docker swarm init
 docker stack deploy -c stack.yml wp-80
 echo "Worepress container listening on port 80."
 
