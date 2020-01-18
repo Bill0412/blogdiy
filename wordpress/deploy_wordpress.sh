@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-LISTEN_PORT=$1
 
 echo "Installing docker..."
 echo 'y\n' | apt install docker.io
@@ -8,7 +7,7 @@ echo ""
 
 ## docker compose wordpress+mysql
 echo "Downloading docker-compose.yml"
-wget "https://raw.githubusercontent.com/Bill0412/sitediy/wordpress/wordpress/stack.yml"
+wget --no-check-certificate "https://raw.githubusercontent.com/Bill0412/sitediy/wordpress/wordpress/stack.yml"
 echo "The configuration file is ready."
 echo ""
 
