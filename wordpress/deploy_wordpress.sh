@@ -7,7 +7,7 @@ echo ""
 
 ## docker compose wordpress+mysql
 echo "Downloading docker-compose.yml"
-wget --no-check-certificate "https://raw.githubusercontent.com/Bill0412/sitediy/wordpress/wordpress/stack.yml"
+wget --no-check-certificate "https://raw.githubusercontent.com/Bill0412/sitediy/master/wordpress/stack.yml"
 echo "The configuration file is ready."
 echo ""
 
