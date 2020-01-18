@@ -6,7 +6,7 @@
 
     });
 
-    const socket = new WebSocket("wss://deploy.blogdiy.net:6789");
+    const socket = new WebSocket("wss://deploy.sitediy.fenghe.us:6789");
     // Connection Opened
     socket.addEventListener('open', (event) => {
         msg = {msg: 'hello'}
@@ -19,7 +19,7 @@
     });
 
 
-    $("#contact-form-25").submit((event) => {
+    $("#contact-form-7").submit((event) => {
         let deploy_info = {
             blog_diy: {
                 deploy: {
@@ -40,7 +40,7 @@
         socket.send(JSON.stringify(deploy_info));
 
         link = deploy_info.blog_diy.deploy.target.host + ':' + deploy_info.blog_diy.deploy.service.port;
-        $("#contact-form-25").replaceWith(`<h4>如果您提供的服务器信息是正确的，您的WordPress网站能在10分钟内在自动完成部署。稍后您可以通过<a href="http://${link}/" target="_blank">http://${link}/</a>来配置您的网站。</h4>`);
+        $("#contact-form-7").replaceWith(`<h4>如果您提供的服务器信息是正确的，您的WordPress网站能在10分钟内在自动完成部署。稍后您可以通过<a href="http://${link}/" target="_blank">http://${link}/</a>来配置您的网站。</h4>`);
     });
 
 })();
